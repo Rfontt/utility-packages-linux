@@ -5,7 +5,7 @@ echo "The intelliji will be installed"
 sudo pacman -Syu
 
 # packages=("grep", "curl", "wget", "tar", "jdk-openjdk")
-packages=("grep", "curl", "wget")
+packages=("grep", "curl", "wget", "tar")
 
 for package in "${packages[@]}"; do
     if package -Q "$package" > /dev/null 2>&1; then
@@ -23,8 +23,6 @@ path="$HOME/Documentos/packages_test"
 
 cd $path
 
-echo $filename
+wget "$downloadUrl"
 
-# wget "$downloadUrl"
-
-# tar -xvfz 
+tar -xvf $filename
