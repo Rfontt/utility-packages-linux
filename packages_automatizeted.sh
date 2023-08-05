@@ -2,18 +2,10 @@
 
 echo "The intelliji will be installed"
 
-sudo pacman -Syu
+. ./utils.sh
 
-# packages=("grep", "curl", "wget", "tar", "jdk-openjdk")
-packages=("grep", "curl", "wget", "tar")
-
-for package in "${packages[@]}"; do
-    if package -Q "$package" > /dev/null 2>&1; then
-        echo "$package already exists."
-    else
-        sudo pacman -S "$package"
-    fi
-done
+packageManager
+installPackates "$command"
 
 # Get the intelliji current version from an api
 response=$(curl -sL "https://data.services.jetbrains.com/products/releases?code=IIU&latest=true&type=release")
@@ -23,6 +15,6 @@ path="$HOME/Documentos/packages_test"
 
 cd $path
 
-wget "$downloadUrl"
+# wget "$downloadUrl"
 
-tar -xvf $filename
+# tar -xvf $filename
