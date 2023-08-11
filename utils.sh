@@ -34,5 +34,3 @@ installPackates() {
         done
     fi
 }
-
-# sudo pacman -S "$package"
