@@ -10,7 +10,7 @@ transformApp() {
     startupWMClass="$9"
 
     sudo mv $folderName-* $dir
-    # sudo ln -s $exec $folderTarget
+    sudo ln -s $exec $folderTarget
 
     echo "[Desktop Entry]
     Version=1.0
