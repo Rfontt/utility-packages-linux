@@ -21,7 +21,7 @@ packageManager() {
     fi
 }
 
-installPackates() {
+installPackages() {
     packages=("grep")
 
     if [ "$has_support" = "true" ]; then

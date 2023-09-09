@@ -1,9 +1,9 @@
 extractDownloadFolder() {
     downloadUrl="$1"
-    filename="$2"
+    filename=$(basename "$downloadUrl")
     path="$HOME/Documentos/packages_test"
 
     cd $path
-    wget "$downloadUrl"
-    tar -xvf $filename
+    curl -o "$filename" -L "$downloadUrl"
+    tar -xvf "$filename"
 }
