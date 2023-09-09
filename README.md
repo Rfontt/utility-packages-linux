@@ -1,5 +1,5 @@
-# utility-packages-arch
-This repository is about utility packages in arch linux
+# utility-packages-linux
+This repository is about utility packages in linux
 
 # How to run?
 
