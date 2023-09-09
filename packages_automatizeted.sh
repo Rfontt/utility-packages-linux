@@ -1,15 +1,12 @@
 #!/bin/bash
 
-echo "The intelliji will be installed"
-
 . ./utils.sh
 . ./transform_app.sh
 . ./extract_download_folder.sh
 
 packageManager
-installPackages "$command"
+installPackages
 
-# Get the intelliji current version from an api
 response=$(curl -sL "https://data.services.jetbrains.com/products/releases?code=IIU&latest=true&type=release")
 downloadUrl=$(echo "$response" | grep -oP '"linux":{"link":"\K[^"]+')
 
