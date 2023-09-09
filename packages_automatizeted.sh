@@ -7,15 +7,13 @@ echo "The intelliji will be installed"
 . ./extract_download_folder.sh
 
 packageManager
-installPackates "$command"
+installPackages "$command"
 
 # Get the intelliji current version from an api
 response=$(curl -sL "https://data.services.jetbrains.com/products/releases?code=IIU&latest=true&type=release")
 downloadUrl=$(echo "$response" | grep -oP '"linux":{"link":"\K[^"]+')
-filename=$(echo "$downloadUrl" | grep -oP '/\K[^/]+\.tar\.gz$')
-path="$HOME/Documentos/packages_test"
 
-extractDownloadFolder "$downloadUrl" "$filename"
+extractDownloadFolder "$downloadUrl"
 
 intellij_dir="/opt/intellij-idea"
 
