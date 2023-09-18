@@ -27,7 +27,7 @@ I believe in the spirit of open source, and our tool is no exception. It's desig
 ### How to run?
 
 ```sh
-sudo sh packages_automatizeted.sh
+sudo sh main.sh
 ```
 
 <div style="text-align:center;">

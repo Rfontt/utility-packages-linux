@@ -1,31 +1,44 @@
 #!/bin/bash
 
-cli_hosen=""
+manager=""
 command=""
 
 . ./log.sh
 
 packageManager() {
     projectNameLog
-    
-    echo "How package manager do you want use? Ex: apt, pacman"
-    read package_manager
 
-    cli_hosen=$package_manager
-
-    if [ "$cli_hosen" = "pacman" ]; then
+    if [ -x "$(command -v apt-get)" ]; then
+        manager="apt"
+        command="apt-get install"
+    elif [ -x "$(command -v yum)" ]; then
+        manager="yum"
+        command="yum install"
+    elif [ -x "$(command -v dnf)" ]; then
+        manager="dnf"
+        command="dnf install"
+    elif [ -x "$(command -v zypper)" ]; then
+        manager="zypper"
+        command="zypper install"
+    elif [ -x "$(command -v pacman)" ]; then
+        manager="pacman"
         command="pacman -S"
+    elif [ -x "$(command -v apk)"]; then
+        manager="apk"
+        command="apk add"
     else
-        echo "We dont have support to this package manager"
-        exit 1
+        manager="Unkown"
+        command=""
     fi
+    
+    echo "Your package manager is $manager"
 }
 
 verifyPackage() {
     package="$1"
     package_found=0
 
-    case "$cli_hosen" in
+    case "$manager" in
         dpkg)
             if dpkg -l | grep -q "ii  $package "; then
                 package_found=1
@@ -42,7 +55,7 @@ verifyPackage() {
             fi
             ;;
         dnf|yum)
-            if "$package_manager" list installed | grep -q "$package"; then
+            if yum list installed | grep -q "$package" || dnf list installed | grep -q "$package"; then
                 package_found=1
             fi
             ;;
@@ -52,7 +65,7 @@ verifyPackage() {
             fi
             ;;
         *)
-            echo "Gerenciador de pacotes não suportado: $package_manager"
+            echo "We dont have support to this package manager"
             ;;
     esac
 
@@ -64,10 +77,8 @@ installPackages() {
 
     for package in "${packages[@]}"; do
         package_found=$(verifyPackage "$package")
-        
-        if [ $package_found -eq 1 ]; then
-            echo "$package is already installed."
-        else
+
+        if [ $package_found -ne 1 ]; then
             echo "$package will be installed."
             sudo $command "$package"
         fi
