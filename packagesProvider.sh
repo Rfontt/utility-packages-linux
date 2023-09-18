@@ -8,7 +8,7 @@ command=""
 packageManager() {
     projectNameLog
     
-    echo "How package manager do you want use? Ex: apt, pacman"
+    echo "What is your package manager? Ex: apt, pacman"
     read package_manager
 
     cli_hosen=$package_manager

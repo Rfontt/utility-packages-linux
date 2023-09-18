@@ -1,4 +1,6 @@
-transformApp() {
+#!/bin/bash
+
+transformToApp() {
     dir="$1"
     icon="$2"
     exec="$3"

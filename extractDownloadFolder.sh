@@ -1,3 +1,5 @@
+#!/bin/bash
+
 extractDownloadFolder() {
     downloadUrl="$1"
     filename=$(basename "$downloadUrl")
