@@ -31,7 +31,7 @@ packageManager() {
         command=""
     fi
     
-    echo "Your package manager is $manager"
+    echo -e "Welcome to RTinux, here you can install tools to your linux!!! \n"
 }
 
 verifyPackage() {
@@ -73,7 +73,7 @@ verifyPackage() {
 }
 
 installPackages() {
-    packages=("grep" "tar" "curl" "figlet")
+    packages=("grep" "tar" "curl")
 
     for package in "${packages[@]}"; do
         package_found=$(verifyPackage "$package")
