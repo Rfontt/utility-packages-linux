@@ -8,7 +8,7 @@ showMenu() {
     echo "1. Intelijji"
     echo "2. VS Code"
     echo "3. Java"
-    echo "4. Sair"
+    echo "4. Exit"
 
     read -p "Choose the item: " option
 
