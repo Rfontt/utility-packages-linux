@@ -3,7 +3,7 @@
 temp_dir=$(mktemp -d -p "$HOME" packages.XXXXXX)
 
 . ./packagesProvider.sh
-. ./transformToApp.sh
+. ./appProvider.sh
 . ./extractDownloadFolder.sh
 . ./menu.sh
 

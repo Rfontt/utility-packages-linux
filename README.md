@@ -26,6 +26,13 @@ I believe in the spirit of open source, and our tool is no exception. It's desig
 
 ### How to run?
 
+- tests:
+```sh
+sudo sh tests/installPackageTest.sh 
+```
+
+- main:
+
 ```sh
 sudo sh main.sh
 ```
