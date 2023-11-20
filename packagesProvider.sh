@@ -6,7 +6,9 @@ command=""
 . ./log.sh
 
 packageManager() {
-    projectNameLog
+    text="  ____ _____ _                  \n|  _ \\_   _(_)_ __  _   ___  __\n| |_) || | | | '_ \| | | \\ \\/ /\n|  _ < | | | | | | | |_| |>  < \n|_| \\_\\|_| |_|_| |_|\\__,_/_/\\_\\"
+
+    projectNameLog "$text"
 
     if [ -x "$(command -v apt-get)" ]; then
         manager="apt"
