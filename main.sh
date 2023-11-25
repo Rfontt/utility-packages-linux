@@ -6,18 +6,20 @@ temp_dir=$(mktemp -d -p "$HOME" packages.XXXXXX)
 . ./appProvider.sh
 . ./extractDownloadFolder.sh
 . ./menu.sh
+. ./toolsList.sh
 
 packageManager
 installPackages
 showMenu
 
-# response=$(curl -sL "https://data.services.jetbrains.com/products/releases?code=IIU&latest=true&type=release")
-# downloadUrl=$(echo "$response" | grep -oP '"linux":{"link":"\K[^"]+')
+for item in "${choosenItems[@]}"; do
+    for tool in "${!tools[@]}"; do
+        toolNumber="${tools[$tool]%,*}"
 
-# extractDownloadFolder "$downloadUrl" "$temp_dir"
+        if [ "$toolNumber" == "$item" ]; then
+            installApp "$tool" "$temp_dir"
+        fi
+    done
+done
 
-# intellij_dir="/opt/intellij-idea"
-
-# transformToApp "$intellij_dir" "$intellij_dir/bin/idea.png" "$intellij_dir/bin/idea.sh" "idea-IU" "/usr/local/bin/idea" "intellij-idea" "Powerful IDE for Java development" "Development;IDE;" "jetbrains-idea"
-
-# rm -rf "$temp_dir"
+rm -rf "$temp_dir"
