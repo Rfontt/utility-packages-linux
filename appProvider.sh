@@ -46,7 +46,7 @@ installApp() {
     startupWMClass=${toolsStartupWMClass[$tool]#*,}
 
     extractDownloadFolder "$url" "$temp_dir" "$tool"
-    transformToApp "$dir" "$dir/$icon" "$dir/$exec" "$tool" "$folderTarget" "$appName" "$comment" "$category" "$startupWMClass"
+    transformToApp "$dir" "$icon" "$exec" "$tool" "$folderTarget" "$appName" "$comment" "$category" "$startupWMClass"
 
     echo "$appName is installed..."
 }

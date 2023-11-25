@@ -24,7 +24,7 @@ installIntellij() {
     rm -rf "/opt/intellij"
     rm -rf "/usr/local/bin/idea"
 
-    echo "Everthing is ok..."
+    echo "Everything is ok..."
 }
 
 tests() {
