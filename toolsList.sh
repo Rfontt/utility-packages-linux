@@ -23,28 +23,28 @@ toolsDir=(
 )
 
 toolsIcon=(
-    [intellij]="1,bin/idea.png"
-    [vscode]="2,test"
+    [intellij]="1,${toolsDir[intellij]#*,}/bin/idea.png"
+    [vscode]="2,com.visualstudio.code.oss"
 )
 
 toolsExec=(
-    [intellij]="1,bin/idea.sh"
-    [vscode]="2,test"
+    [intellij]="1,${toolsDir[intellij]#*,}/bin/idea.sh"
+    [vscode]="2,code-oss --unity-launch %F"
 )
 
 toolsFolderTarget=(
     [intellij]="1,/usr/local/bin/idea"
-    [vscode]="2,test"
+    [vscode]="2,/usr/local/bin/code"
 )
 
 toolsAppName=(
     [intellij]="1,Intellij-IDEA"
-    [vscode]="2,test"
+    [vscode]="2,Visual-Code"
 )
 
 toolsComment=(
     [intellij]="1,Powerful IDE for Java development"
-    [vscode]="2,Code Editing. Redefined."
+    [vscode]="2,Code Editing. Redefined"
 )
 
 toolsCategory=(
